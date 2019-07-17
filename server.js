@@ -3,6 +3,7 @@
 const express = require('express');
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+require("dotenv").config();
 
 // Sets up the Express App
 // =============================================================
@@ -25,7 +26,7 @@ app.set("view engine", "handlebars");
 
 // DB: Config
 // =============================================================
-const db = require('./config/keys').mongoURI;
+const db = require('./config/config').mongoURI;
 
 // Mongoose: Connect to MongoDB
 // =============================================================

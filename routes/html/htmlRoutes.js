@@ -1,8 +1,4 @@
-// Dependencies
-// =============================================================
-const api = require('././api/apiRoutes');
-
-// Routes
+// HTML Routes
 // =============================================================
 module.exports = function (app) {
 

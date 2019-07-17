@@ -1,7 +1,7 @@
 // Dependencies
 // =============================================================
-const Article = require('././models/Articles');
-const User = require('././models/Users');
+const Article = require('../../models/Articles');
+const User = require('../../models/Users');
 
 module.exports = function (app) {
 // Article: GET ALL Articles
