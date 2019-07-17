@@ -1,0 +1,14 @@
+body{
+    background-image: url('https://66.media.tumblr.com/ff0d460c004c453aa53d89a067f0b1c3/tumblr_nq9at07hFh1tzbfwwo1_500.gif');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    padding:0;
+    margin:0;
+}
+main {
+    flex: 1 0 auto;
+}

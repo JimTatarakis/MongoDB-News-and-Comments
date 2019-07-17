@@ -1,0 +1,27 @@
+{
+  "name": "mongodb-news-and-comments",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JimTatarakis/MongoDB-News-and-Comments.git"
+  },
+  "author": "Jim.Tatarakis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JimTatarakis/MongoDB-News-and-Comments/issues"
+  },
+  "homepage": "https://github.com/JimTatarakis/MongoDB-News-and-Comments#readme",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "body-parser": "^1.19.0",
+    "cheerio": "^1.0.0-rc.3",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "mongoose": "^5.6.4"
+  }
+}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- CSS Styling -->
+    <!-- Font Awesome -->
+    <script src="https://kit.fontawesome.com/0a6a8a1e29.js"></script>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Materialize - Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    {{!-- Animate CSS --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Spreddit</title>
+</head>
+
+<body>
+    <header>
+        <!-- Navbar -->
+        <div class="navbar-fixed">
+            <nav>
+                <div class="container">
+                    <div class="nav-wrapper">
+                        <a href="#" class="brand-logo grey-text darken-2">Spreddit - Spreading the News Today</a>
+                        <a href="#" data-target="mobile-nav" class="sidenav-trigger">
+                            <i class="material-icons">menu</i>
+                        </a>
+                        <ul class="right hide-on-med-and-down grey-text darken-2">
+                            <li class="grey-text darken-2">
+                                <a href="/home">Home</a>
+                            </li>
+                            <li class="grey-text darken-2">
+                                <a href="/about">About</a>
+                            </li>
+                            <li class="grey-text darken-2">
+                                <a href="/contact">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+    </header>
+    {{!-- SideNav --}}
+    <ul class="sidenav" id="mobile-nav">
+        <li>
+            <a href="/home">Home</a>
+        </li>
+        <li>
+            <a href="/about">About</a>
+        </li>
+        <li>
+            <a href="/contact">Contact</a>
+        </li>
+    </ul>
+    </div>
+    <br><br>
+    {{!-- View Insert --}}
+    <main>
+        {{{body}}}
+    </main>
+    {{!-- insert git hub link --}}
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col s6 offset-6">
+                    <p class="flow-text grey-text darken-2">Jim Tatarakis &copy; 2019</p>
+                </div>
+            </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    {{!-- Materialize: Auto Init animations --}}
+    <script>M.AutoInit();</script>
+    <!-- Custom JavaScript -->
+    <script src="/assets/js/main.js"></script>
+</body>
+
+</html>
