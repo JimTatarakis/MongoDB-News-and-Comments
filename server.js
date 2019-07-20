@@ -3,6 +3,10 @@
 const express = require('express');
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const logger = require('morgan');
+const axios = require('axios');
+const cheerio = require('cheerio');
+
 require("dotenv").config();
 
 // Sets up the Express App
@@ -12,6 +16,10 @@ const app = express();
 // Bodyparser: Bodyparser Middleware
 // =============================================================
 app.use(bodyParser.json());
+
+// Morgan: Log Requests
+// =============================================================
+app.use(logger('dev'));
 
 // Sets up Static Folder
 // =============================================================
@@ -26,23 +34,27 @@ app.set("view engine", "handlebars");
 
 // DB: Config
 // =============================================================
-const db = require('./config/config').mongoURI;
+const mongodb = require('./config/config').mongoURI;
+
+// DB: Require Models
+// =============================================================
+const db = require('./models');
 
 // Mongoose: Connect to MongoDB
 // =============================================================
 mongoose
-.connect(db,{ useNewUrlParser: true})
+.connect(mongodb,{ useNewUrlParser: true, useFindAndModify: false })
 .then(()=> console.log('MongoDB connected...'))
 .catch(err => console.log(err));
 
 
 // Server: Requires the html-Routes
 // =============================================================
-require('./routes/html/htmlRoutes')(app);
+app.use('/', require('./routes/html/htmlRoutes'));
 
 // Server: Requires the api-Routes
 // =============================================================
-require('./routes/api/apiRoutes')(app);
+app.use('/api', require('./routes/api/apiRoutes'));
 
 
 // Server: Define Port

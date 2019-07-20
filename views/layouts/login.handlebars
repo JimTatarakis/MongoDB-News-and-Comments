@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     {{!-- Animate CSS --}}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    {{!-- TitleFont --}}
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/assets/css/login.css">
     <meta charset="UTF-8">
@@ -19,13 +21,23 @@
     <title>Spreddit</title>
 </head>
 
-<body class="body-login">
-    <header>
-        <h1>Spreddit - Spreading the News Today.</h1>
+<body class="body-login black">
+    <header class="black grey-text">
+        <h1 class="logo">Spreddit - Spreading the News Today.</h1>
     </header>
     {{!-- View Insert --}}
     <main>
-        {{{body}}}
+        <div class="parallax-container">
+            <div class="parallax"><img src="https://images.pexels.com/photos/261949/pexels-photo-261949.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"></div>
+        </div>
+        <div class="section black">
+            <div class="row container">
+                {{{body}}}
+            </div>
+        </div>
+        <div class="parallax-container">
+            <div class="parallax"><img src="https://images.pexels.com/photos/2538121/pexels-photo-2538121.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"></div>
+        </div>
     </main>
     {{!-- insert git hub link --}}
     <footer>

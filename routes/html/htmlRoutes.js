@@ -1,37 +1,24 @@
 // HTML Routes
 // =============================================================
-module.exports = function (app) {
+const express = require('express');
+const router = express.Router();
+const controller = require('../../controllers/controller');
+const articles = require('../../models/Articles');
+const comments = require('../../models/Comments');
 
     // GET: Login page (/)
-    app.get("/", function (req, res) {
-        res.render('index', {layout: 'login.handlebars'});
-    });
+    router.get("/", controller.index);
+
+    // GET: Register page (/registration)
+    router.get("/registration", controller.registration);
 
     // GET: Home Page (/home)
-    app.get("/home", function (req, res) {
-        // make req to api and get data (articles + comments)
-        res.render('home');
-    });
-
-    // GET: User Comments Page (/comments)
-    app.get("/comments/:userid", function (req, res) {
-        // make req to api and get data (comments) WHERE user id is present
-        let userID = req.params.userid;
-        let userData = {
-            userID: userID
-            // userComments: data (data is from req to api)
-        }
-        res.render('comments', userData);
-    });
+    router.get("/home", controller.home);
 
     // GET: About Page (/about)
-    app.get("/about", function (req, res) {
-        res.render('about');
-    });
+    router.get("/about", controller.about);
 
     // GET: Contact Page (/contact)
-    app.get("/contact", function (req, res) {
-        res.render('contact');
-    });
+    router.get("/contact", controller.contact);
 
-};
+module.exports = router;

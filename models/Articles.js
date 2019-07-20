@@ -4,7 +4,7 @@ const timestamp = require('mongoose-timestamp');
 
 // Mongoose/MongoDB: Generates new Schema for Articles
 const ArticleSchema = new Schema({
-    name: {
+    title: {
         type: String,
         required: true,
         trim: true
@@ -14,11 +14,8 @@ const ArticleSchema = new Schema({
         required: true,
     },
     comments: {
-        type: Array,
-    },
-    article_id: {
-        type: String,
-        required: true,
+        type: Schema.Types.ObjectId,
+        ref: 'Comments'
     }
     
 });
@@ -26,4 +23,4 @@ const ArticleSchema = new Schema({
 // TimeStamp: adds 'created_at' and 'updated_at' properties to ArticleSchema
 ArticleSchema.plugin(timestamp);
 
-module.exports = ArticleData = mongoose.model('ArticleData', ArticleSchema);
+module.exports = Articles = mongoose.model('article', ArticleSchema);
