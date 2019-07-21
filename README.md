@@ -30,6 +30,11 @@ Intended to provide current news now. Users are able to comment on articles and 
 
 ![Articles-Collections](./images/Articles-Collections.png)
 
+## Homepage Working and Scraping
+<br>
+
+![Articles-Collections](./images/Spreddit-Homepage.png)
+
 
 ## Author
 * **Jim Tatarakis** - *Initial Work* - [JimTatarakis](https://github.com/JimTatarakis)
