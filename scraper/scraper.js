@@ -7,16 +7,20 @@ const db = require('../models');
 // Scraper: Declares function to scrape, then return data
 const scrape = (req, res) => {
     // Axios: Get URL data
-    axios.get('https://www.foxnews.com/').then((response) => {
+    axios.get('https://www.arstechnica.com/').then((response) => {
         const $ = cheerio.load(response.data);
 
-        $('.title').each((i, element) => {
+        $('header').each((i, element) => {
 
+            // an object to hold the scraped Data 
             let scrapeD = {};
 
-            scrapeD.title = $(this).children('a').text();
-            scrapeD.link = $(this).children('a').attr('href');
+            // add Data to object
+            scrapeD.title = $(this).children('h2 a').text();
+            scrapeD.link = $(this).children('h2 a').attr('href');
+            scrapeD.summary = $(this).children('p.excerpt').text();
 
+            // create article with scraped object Data
             db.Article.create(scrapeD)
                 .then((dbArticle) => {
                     console.log(dbArticle);

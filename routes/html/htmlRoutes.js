@@ -3,14 +3,11 @@
 const express = require('express');
 const router = express.Router();
 const controller = require('../../controllers/controller');
-const articles = require('../../models/Articles');
-const comments = require('../../models/Comments');
+const articles = require('../../models/Article');
+const comments = require('../../models/Comment');
 
-    // GET: Login page (/)
-    router.get("/", controller.index);
-
-    // GET: Register page (/registration)
-    router.get("/registration", controller.registration);
+    // GET: Scrape Landing
+    router.get("/", controller.scrape);
 
     // GET: Home Page (/home)
     router.get("/home", controller.home);

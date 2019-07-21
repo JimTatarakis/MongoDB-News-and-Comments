@@ -1,26 +1,25 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const timestamp = require('mongoose-timestamp');
+const comments = require('./Comment');
 
 // Mongoose/MongoDB: Generates new Schema for Articles
 const ArticleSchema = new Schema({
     title: {
         type: String,
-        required: true,
-        trim: true
     },
     link: {
         type: String,
-        required: true,
+        default: 'No link today!'
+    },
+    excerpt: {
+        type: String,
+        default: 'No summary this time!'
     },
     comments: {
         type: Schema.Types.ObjectId,
-        ref: 'Comments'
+        ref: 'Comment',
     }
     
 });
-
-// TimeStamp: adds 'created_at' and 'updated_at' properties to ArticleSchema
-ArticleSchema.plugin(timestamp);
 
 module.exports = Articles = mongoose.model('article', ArticleSchema);

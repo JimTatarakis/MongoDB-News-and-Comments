@@ -3,15 +3,15 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-const articles = require('../../models/Articles');
-const comments = require('../../models/Comments');
+const articles = require('../../models/Article');
+const comments = require('../../models/Comment');
 
 // Articles Routes
 // =============================================================
 // Articles: GET ALL Articles
 router.get('/articles', (req, res) => {
     articles.find({})
-        .sort({ date: -1 })
+        .populate('comments')
         .then(Articles => res.json(Articles)).catch(err => console.log(err));
 });
 
@@ -28,10 +28,10 @@ router.get('/comments', (req, res) => {
         .then(comments => res.json(comments)).catch(err => console.log(err));
 });
 
-// Comment: Add/Update Comment
-router.post('/comments', (req, res) => {
+// Comment: Add/Update Comment : works!
+router.post('/comments/:id', (req, res) => {
     // Comment: Save req.body
-    const { title, comment, article_id } = req.body;
+    const { title, comment} = req.body;
 
     const newComment = {
         title,
@@ -39,11 +39,11 @@ router.post('/comments', (req, res) => {
     }
 
     comments.create(newComment)
-    .then((dbComment) => {
-        return articles.findOneAndUpdate({ _id : article_id }, {comments: dbComment._id}, {new:true});
-    })
-    .then( dbArticle => res.json(dbArticle))
-    .catch( err => res.json(err));
+        .then((dbComment) => {
+            return articles.findOneAndUpdate({ _id: req.params.id }, { comments: dbComment }, { new: true });
+        })
+        .then(dbArticle => res.json(dbArticle))
+        .catch(err => res.json(err));
 
 });
 
@@ -52,9 +52,9 @@ router.delete('/comments/delete', (req, res) => {
     // Comment: Save Request Data as Const
     const { comment_id } = req.body;
 
-    comments.findById({ _id : comment_id }).remove().exec();
+    comments.findById({ _id: comment_id }).remove().exec();
 
-    res.json({msg:`comment ${comment_id} deleted!`});
+    res.json({ msg: `comment ${comment_id} deleted!` });
 
 });
 

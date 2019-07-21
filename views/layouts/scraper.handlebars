@@ -14,73 +14,37 @@
     {{!-- TitleFont --}}
     <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One&display=swap" rel="stylesheet">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/scrape.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Spreddit</title>
 </head>
 
-<body class="black">
-    <header>
-        <!-- Navbar -->
-        <ul id="dropdown1" class="dropdown-content grey-text darken-2">
-            <li class="grey-text darken-2">
-                <a href="/home">Home</a>
-            </li>
-            <li class="divider"></li>
-            <li class="grey-text darken-2">
-                <a href="/about">About</a>
-            </li>
-            <li class="divider"></li>
-            <li class="grey-text darken-2">
-                <a href="/contact">Contact</a>
-            </li>
-        </ul>
-        <div class="navbar-fixed">
-            <nav>
-                <div class="container">
-                    <div class="nav-wrapper">
-                        <a href="#" class="brand-logo grey-text darken-2">Spreddit - Spreading the News Today</a>
-                        <a href="#" data-target="mobile-nav" class="sidenav-trigger">
-                            <i class="material-icons">menu</i>
-                        </a>
-                        <ul class="right hide-on-med-and-down">
-                            <li><a href="#!" class="dropdown-trigger" data-target="dropdown1"><i
-                                        class="material-icons right">arrow_drop_down</i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
+<body class="black scrape-body">
+    <header class="white-text center">
+        <h2 class="scrape-logo">Spreddit - Spreading the News Today.</h2>
     </header>
-    {{!-- SideNav --}}
-    <ul class="sidenav" id="mobile-nav">
-        <li>
-            <a href="/home">Home</a>
-        </li>
-        <li>
-            <a href="/about">About</a>
-        </li>
-        <li>
-            <a href="/contact">Contact</a>
-        </li>
-    </ul>
-    <br>
 
     <main>
-        <div class="parallax-container">
-            <div class="parallax"><img
-                    src="https://images.pexels.com/photos/261949/pexels-photo-261949.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
-            </div>
-        </div>
-        <div class="section black">
-            <div class="row container center">
-                {{{body}}}
-            </div>
-        </div>
-        <div class="parallax-container">
-            <div class="parallax"><img
-                    src="https://images.pexels.com/photos/2538121/pexels-photo-2538121.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
+        <div class="section section-view center">
+            {{body}}
+            <br><br><br><br><br>
+            <div class="container center white-text darken-2">
+                <div class="row">
+                    <div class="col s12 animated bounceInRight">
+                        {{!-- insert registration form here --}}
+                        <center>
+                            <div class="section white-text"></div>
+                            <h4 class="white-text">Login here.</h4>
+                            <br><br>
+                            <div class="section"></div>
+                            <a id="btn-welcome" href="/home" class='btn waves-effect grey darken-1'>Get Spredding</a>
+                        </center>
+                        <div class="section"></div>
+                        <div class="section"></div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
@@ -121,7 +85,7 @@
     {{!-- Materialize: Auto Init animations --}}
     <script>M.AutoInit();</script>
     <!-- Custom JavaScript -->
-    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/scrape.js"></script>
 </body>
 
 </html>

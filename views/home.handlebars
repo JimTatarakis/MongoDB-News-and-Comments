@@ -1,3 +1,23 @@
-<div class="container section-home">
-    {{!-- insert articles with their corresponding comments (list commenters names and timestamp store commentid) --}}
+{{!-- article --}}
+{{#each limitData}}
+<div class="article">
+    <div class="container article-container">
+        <div class="row">
+            <div class="col s12 center">
+                <h4 class="article-title">
+                    <a class="white-text" href={{this.link}} article-id="{{this.id}}">{{this.title}}</a>
+                </h4>
+                <p class="excerpt">{{this.excerpt}}</p>
+                <div class="article-details">
+                    {{#each this.comments}}
+                        <div class="comment-details">
+                            <h6 class="comment-title">{{this.title}}</h6>
+                            <p class="comment" comment-id="{{this.id}}" >{{this.comment}}</p>
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+{{/each}}
